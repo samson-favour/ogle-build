@@ -3,12 +3,11 @@ import {
   addKeyword,
   addLocation,
 } from "../../features/properties/propertiesSlice";
-import DateRangeComp from "./DateRangeComp";
-import DateRange from "./DateRangeComp";
-import DateRangePickerComp from "./DateRangePickerComp";
-import DateRangePicker from "./DateRangePickerComp";
-import ResponsiveDateRangePicker from "./ResponsiveDateRangePicker";
+import { IoIosPeople } from "react-icons/io";
+
 import TailwindDatePicker from "./TailwindDatePicker";
+import { MobileDateRangePicker } from "@mui/x-date-pickers-pro";
+import MobileTailwindDatePicker from "./MobileTailwindDatePicker";
 
 const ShortLetFilter = ({ className = "" }) => {
   // submit handler
@@ -18,13 +17,12 @@ const ShortLetFilter = ({ className = "" }) => {
 
   return (
     <div className={`home1-advnc-search ${className}`}>
-      <div className="bg-red"></div>
       <ul className="h1ads_1st_list mb0">
         <li className="list-inline-item">
           <div className="form-group placement">
             <input
               type="text"
-              className="form-control "
+              className="form-control shadow-none"
               placeholder="Location"
               onChange={(e) => dispatch(addLocation(e.target.value))}
             />
@@ -36,24 +34,29 @@ const ShortLetFilter = ({ className = "" }) => {
         {/* End li */}
 
         <li className="list-inline-item">
-          <TailwindDatePicker />
+          <div className=" block xl:hidden">
+            <MobileTailwindDatePicker />
+          </div>
+
+          <div className="hidden xl:block">
+            <TailwindDatePicker />
+          </div>
         </li>
 
-        {/* <li className="list-inline-item">
-          <div className="search_option_two">
-            <div className="candidate_revew_select">
-              <select className="selectpicker w100 form-select show-tick">
-                <option value="">Property Type</option>
-                <option>Apartment</option>
-                <option>Bungalow</option>
-                <option>Condo</option>
-                <option>House</option>
-                <option>Land</option>
-                <option>Single Family</option>
-              </select>
+        <li className="list-inline-item">
+          <div className="form-group placement">
+            <input
+              type="text"
+              className="form-control numOfGuest shadow-none w-[100%]"
+              placeholder="Number of guests"
+              onChange={(e) => dispatch(addLocation(e.target.value))}
+            />
+
+            <div className="absolute top-4 right-3">
+              <IoIosPeople size={20} color="#777777" />
             </div>
           </div>
-        </li> */}
+        </li>
 
         <li className="list-inline-item">
           <div className="search_option_button">

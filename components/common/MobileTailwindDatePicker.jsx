@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Datepicker from "react-tailwindcss-datepicker";
 
-const TailwindDatePicker = () => {
+const MobileTailwindDatePicker = () => {
   const [value, setValue] = useState({
     startDate: null,
     endDate: null,
@@ -16,11 +16,10 @@ const TailwindDatePicker = () => {
     <Datepicker
       value={value}
       onChange={handleValueChange}
+      useRange={false}
       inputClassName="focus:outline-none focus:ring-0 focus:border-gray-200 border-gray-200"
       placeholder={"Check In - Check Out"}
-      showShortcuts={true}
-      showFooter={true}
     />
   );
 };
-export default TailwindDatePicker;
+export default MobileTailwindDatePicker;
